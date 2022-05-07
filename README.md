@@ -1,4 +1,6 @@
-# wordlejs
+# node-wordle
+
+
 
 A few simple functions to make wordle easier to make.
 

@@ -8,6 +8,7 @@ exports.config = function (configData) {
     config = configData;
 };
 
+
 exports.checkGuess = function (guess, answer) {
 
     if (guess.length != 5) {
