@@ -1,8 +1,8 @@
 # node-wordle
 
-
-
 A few simple functions to make wordle easier to make.
+
+Valid as of wordle commit af610646.
 
 ## Functions
 
