@@ -2,6 +2,8 @@
 
 A few simple functions to make wordle easier to make.
 
+This is an alpha release of new features, including support for words that do not have 5 letters. For now, this update only includes more options for return types. Expect more soon.
+
 Valid as of wordle commit af610646.
 
 ## Functions
