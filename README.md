@@ -37,13 +37,13 @@ Toggles between emojis and numbers, automatically switches to responseType in th
 `responseType`
 
 Sets the return type for `checkGuess`. It currently supports these options:
-```json
+
 - alphalight:   "w", "y", "g"
 - alphadark:    "b", "y", "g"
 - numbers:      0, 1, 2
 - emojilight:   "⬜", "🟨", "🟩"
 - emojidark:    "⬛", "🟨", "🟩"
-```
+
 
 `forceValidity`
 
