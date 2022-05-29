@@ -1,7 +1,7 @@
 const data = require("./data.json");
 var config = {};
 
-resonseTypes = {
+var responseTypes = {
     "alphalight": ["w", "y", "g"],
     "alphadark": ["b", "y", "g"],
     "numbers": ["0", "1", "2"],
