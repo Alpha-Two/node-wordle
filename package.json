@@ -1,46 +1,18 @@
 {
-  "_from": "node-wordle",
-  "_id": "node-wordle@1.0.3",
-  "_inBundle": false,
-  "_integrity": "sha512-hlsvs+U2FFtR8AfqyeZy82RCEvAZ2W7iAlXeGp4WW29SD1hJa6adO3NTCqEFMS1RmVpN2eObyyVgr3lRujmt/A==",
-  "_location": "/node-wordle",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "tag",
-    "registry": true,
-    "raw": "node-wordle",
-    "name": "node-wordle",
-    "escapedName": "node-wordle",
-    "rawSpec": "",
-    "saveSpec": null,
-    "fetchSpec": "latest"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/node-wordle/-/node-wordle-1.0.3.tgz",
-  "_shasum": "55cdb922dad3ef58e531c6b58eb0d112de584d60",
-  "_spec": "node-wordle",
-  "_where": "C:\\Users\\alpha\\Documents\\letsaplaywordle!",
   "author": {
     "name": "Alpha2"
   },
-  "bundleDependencies": false,
-  "dependencies": {},
   "deprecated": false,
   "description": "Functions to help create wordle with node.js",
   "license": "ISC",
   "main": "wordle.js",
   "name": "node-wordle",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose"
   },
-  "version": "1.1.0-rc.1",
-  
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/Alpha-Two/node-wordle.git"
-    }
-  
+  "version": "1.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alpha-Two/node-wordle.git"
+  }
 }

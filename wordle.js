@@ -76,8 +76,22 @@ function warn(message, source) {
 exports.getLog = function () {
     return log;
 };
+exports.checkGuess = function (guess, answer, returnType = config.responseType) {
+    console.log(returnType)
+    returnType = responseTypes[returnType]
+    returnString = ""
+    checkGuessPrivate(guess, answer).correctArray.forEach(element => {
+        try {
+            returnString = returnString.concat(returnType[element])
+        } catch (e) {
+            throw new Error("Letter type value " + element + "was not valid for return type string " + returnType)
+        }
+    });
 
-exports.checkGuess = function (guess, answer) {
+    return returnString
+}
+
+checkGuessPrivate = function (guess, answer) {
 
     if (guess.length != answer.length) {
         throw new Error("guess and answer must be the same length");
@@ -85,7 +99,7 @@ exports.checkGuess = function (guess, answer) {
 
 
     let gFreq = {};
-    let correctness = "";
+    corrArr = []
 
     // get frequency of letters in answer
     let aFreq = {};
@@ -102,19 +116,23 @@ exports.checkGuess = function (guess, answer) {
             gFreq[guess[i]] > aFreq[guess[i]] ||
             typeof aFreq[guess[i]] != "number"
         ) {
-            correctness += responseTypes[config.responseType][0];
+            corrArr.push(0)
             continue;
         }
         if (guess[i] != answer[i]) {
-            correctness += responseTypes[config.responseType][1];
+            corrArr.push(1)
             continue;
         }
         if (guess[i] == answer[i]) {
-            correctness += responseTypes[config.responseType][2];
+            corrArr.push(2)
             continue;
         }
     }
-    return correctness;
+    return {
+        correctArray: this.corrArr,
+        guess: guess,
+        answer: answer
+    };
 };
 
 exports.getWord = function (isValid, length = 5) {

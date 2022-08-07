@@ -2,9 +2,8 @@
 
 A few simple functions to make wordle easier to make.
 
-This is a release candidate of new features, including support for words that do not have 5 letters. See [CHANGELOG.md](./CHANGELOG.md) for new features.
 
-If any issues are found, please open an issue on the [Github](https://github.com/Alpha-Two/node-wordle). If no issues are found in the next week, this release candidate will become the official release.
+If any issues are found, please open an issue on the [Github](https://github.com/Alpha-Two/node-wordle).
 
 5 letter words are valid as of wordle commit af610646.
 
