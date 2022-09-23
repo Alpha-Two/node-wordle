@@ -20,55 +20,62 @@ exports.data = data;
 // responseType: string, what response to give based on the responseTypes variable
 // TODO add customization
 // forceValidity: number, whether to always pick a valid word, despite input. Can be -1 for always all words, 0 for input, 1 for always valid words.
-exports.config = function (configData) {
-    config = configData;
-
-    //manage .logWarnings
-    if (typeof config.logWarnings === "undefined") {
-        config.logWarnings = false;
-    }
-
-    //manage .emojis
-    if (typeof config.emojis !== "undefined") {
-        warn(
-            "Using config.emojis is deprecated, please use config.responseType instead.\nTo preserve backwards compatability, this setting has been automatically fixed for you.",
-            "config"
-        );
-        switch (config.emojis) {
-            case true:
-                config.responseType = "emojidark";
-                break;
-            default:
-                config.responseType = "numbers";
-                break;
+exports.Config = class {
+    EnterData(configData) {
+        config = configData;
+    
+        //manage .logWarnings
+        if (typeof config.logWarnings === "undefined") {
+            config.logWarnings = false;
+        }
+    
+        //manage .emojis
+        if (typeof config.emojis !== "undefined") {
+            warn(
+                "Using config.emojis is deprecated, please use config.responseType instead.\nTo preserve backwards compatability, this setting has been automatically fixed for you.",
+                "config"
+            );
+            switch (config.emojis) {
+                case true:
+                    config.responseType = "emojidark";
+                    break;
+                default:
+                    config.responseType = "numbers";
+                    break;
+            }
+        }
+    
+        //manage .responseType
+        if (
+            typeof config.responseType === "undefined" ||
+            typeof responseTypes[config.responseType] === "undefined"
+        ) {
+            warn('No valid responseType given, defaulting to "numbers"', "config");
+            config.responseType = "numbers";
+        }
+    
+        //manage .forceValidity
+        if (typeof config.forceValidity !== "number") {
+            warn("No valid forceValidity given, defaulting to 0", "config");
+        }
+    };
+    addReturnType(name, array, doSwitch=true) {
+        if (array.length != 5) {
+            warn("array length not valid (!= 5)", "addReturnType")
+        } else
+        {
+            responseTypes[name] = array;
         }
     }
-
-    //manage .responseType
-    if (
-        typeof config.responseType === "undefined" ||
-        typeof responseTypes[config.responseType] === "undefined"
-    ) {
-        warn('No valid responseType given, defaulting to "numbers"', "config");
-        config.responseType = "numbers";
-    }
-
-    //manage .forceValidity
-    if (typeof config.forceValidity !== "number") {
-        warn("No valid forceValidity given, defaulting to 0", "config");
-    }
-};
+}
+ 
 
 function warn(message, source) {
     if (config.logWarnings) {
         log += "[" + source + "] " + message + "\n";
     } else {
         console.warn(
-            "[" +
-                source +
-                "] " +
-                message +
-                "\nIf you want to disable these messages, set logWarnings to true"
+            `[${source}]  ${message}\nIf you want to disable these messages, set logWarnings to true`
         );
     }
 }
